@@ -1,0 +1,6 @@
+restaurant_id,name,city,country,address,opening_date,phone
+REST-DEL-001,Birbal Darbar Connaught Place,Delhi,India,"Hanuman Road, Connaught Place",2023-01-15,+91 973-123-4567
+REST-DEL-002,Birbal Darbar Chanakyapuri,Delhi,India,"The Chanakya Mall, Chanakyapuri",2023-06-20,+91 973-234-5678
+REST-MUM-001,Birbal Darbar Bandra,Mumbai,India,"Chapel Road, Bandra",2023-03-10,+91 974-345-6789
+REST-MUM-002,Birbal Darbar Seawoods,Navi Mumbai,India,"Grand Central Mall, Seawoods",2023-09-05,+91 974-456-7890
+REST-BLR-001,Birbal Darbar Koramangala,Bengaluru,India,"KHB Colony, Koramangala",2024-02-14,+91 976-567-8901
