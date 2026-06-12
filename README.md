@@ -25,6 +25,10 @@ The project implements an ETL pipeline that consumes event data from Kafka-compa
 * **Azure Event Hubs (Kafka API):** Captures real-time incoming restaurant orders.
 * **Azure SQL DB:** Stores operational tables including `customers`, `restaurants`, `menu_items`, `reviews`, and `historical_orders`.
 
+* ** ER Diagram **
+
+![ER Diagram](diagrams/ER%20Diagram.png)
+
 ### 2. Ingestion & Bronze Layer (Raw Data)
 * **Lakeflow Connect:** Connects directly to the Azure SQL DB, handling native Change Data Capture (CDC) to stream updates into Bronze staging tables (`historical_orders`, `reviews`).
 * **SDP Streaming:** Subscribes to Event Hubs topic (`orders`), extracting and appending JSON payloads into the Bronze `orders` streaming table.
@@ -35,11 +39,19 @@ Data is cleansed, validated, and structured into a **Dimensional Model**:
 * **Fact Tables:** * `fact_orders` & `fact_order_items`: Created by unpacking and exploding complex JSON arrays from the Bronze streaming table.
   * `fact_reviews`: Streams raw reviews through an OpenAI model (`databricks-gpt-oss-20b`) via the `ai_query` SQL function. It parses the review-text into structured JSON, extracting sentiment and flagging specific operational issues (e.g., delivery, food quality, pricing).
 
+* **Star Schema**
+
+![Star Schema](diagrams/Dimensional%20Model.png)
+
 ### 4. Aggregation & Gold Layer (Business Value)
 Business logic is applied using PySpark Window functions and aggregations to create optimized Materialized Views for creating Dashboards:
 * `sales_summary_daily`: Aggregates total revenue, average order value (AOV), and order types by date granularity.
 * `cust_360`: Calculates customer lifetime spend, assigns loyalty tiers (Bronze to Platinum), and identifies customer characteristics like favorite restaurants and menu items.
 * `restaurant_reviews`: Aggregates rating & sentiment distribution and categorizes complaints into pre-defined issues per resturant.
+
+### 5. DFD
+
+![DFD](diagrams/DFD.jpg)
 
 ## 🛠️ Tech Stack & Core Tools
 
