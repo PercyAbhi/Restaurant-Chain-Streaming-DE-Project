@@ -1,4 +1,4 @@
-# 🍔 Restaurant-Chain-Streaming-DE-Project
+# 🍔 Restaurant Chain Streaming Data Pipeline
 
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
 ![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
